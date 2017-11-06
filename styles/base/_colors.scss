@@ -1,0 +1,41 @@
+/**
+ * Colors which may be used by customizable components.
+ */
+$colors: (
+  green: #099e2e,
+  red: #da6060,
+  blue: #1493BE,
+  darkblue: #0a2433,
+  lightblue: #1493BE,
+  gold: #e9a416,
+  orange: #eaa517,
+  brown:  #b16525,
+  coral: #fd895e,
+  white: white,
+  darkwhite: #eee,
+  lightgrey: #f5f6f6,
+  mediumgrey: #d3d3d3,
+  darkgrey: #999,
+  shadow: rgba(0, 0, 0, 0.2),
+  black: black,
+  darkoverlay: rgba(0, 0, 0, 0.3),
+);
+
+@each $name, $value in $colors {
+  .color-#{$name} {
+    color: $value !important;
+  }
+
+  .bg-#{$name} {
+    background-color: $value;
+  }
+}
+
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
+}

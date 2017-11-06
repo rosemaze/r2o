@@ -1,0 +1,21 @@
+$heights: (
+  very_small: 50px,
+  small: 60px,
+  medium: 90px,
+  large: 150px,
+);
+
+@each $name, $value in $heights {
+  .height-#{$name} {
+    height: $value;
+  }
+}
+
+@function height($key) {
+  @if map-has-key($heights, $key) {
+    @return map-get($heights, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $heights.";
+  @return null;
+}

@@ -1,0 +1,288 @@
+@import './base/index';
+@import '~bootstrap/scss/bootstrap';
+
+@import './abstracts/index';
+@import './layout/index';
+@import './components/index';
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: color(white);
+  background-color: color(darkblue);
+}
+
+/*https://codepen.io/team/css-tricks/pen/EKEYob*/
+.tableContainer{
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	justify-content: space-around;
+	
+	list-style: none;
+}
+
+.table{
+	width: 200px;
+	height:100px;
+	margin: 50px;
+	
+	line-height: 100px;
+	text-align: center;
+	
+	background-color: #686868;
+	color: white;
+	font-size:2em;
+	cursor:default;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	color: black;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    width: 50%;
+	
+	/*hacky css to hide corners behind action buttons*/
+	border-radius: 3rem;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+.col-3 {width: 25%;}
+.col-9 {width: 75%;}
+.myModal-header{
+	background-color: #346886; 
+	border-top-left-radius:0.3rem;
+	border-top-right-radius:0.3rem;
+}
+.myModal-header .row1{
+	padding-left: 4rem;
+	padding-top: 2rem;
+}
+.myModal-header .row2{
+	padding-left: 4rem;
+	padding-bottom: 2rem;
+	padding-top: 1.3rem;
+}
+.modal-circle-tableno{
+	width:80px;
+	height:80px;
+	border-radius:50%;
+	text-align: center;
+	
+	font-style: italic;
+	font-size: 3rem;
+    
+	color: #0a2433;
+	background-color: #dddddd;
+}
+.modal-subheader{
+	margin-left: 12px;
+}
+
+h1{
+	font-size: 2.1rem;
+    color: white;
+    font-weight: 300;
+	width:89%;
+}
+h2{
+	font-size: 1.7rem;
+	font-weight: 400;
+	color: white;
+}
+h3{
+	font-size: 1.1rem;
+	font-weight: 300;
+	color: white;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+#legendTable{
+	width:200px;
+	font-size:0.9em;
+}
+#legendTable td{
+	border:none;
+	padding-top:4px;
+	padding-bottom:4px;
+	text-align:left;
+}
+#legendTable .legendcolor{
+	width:20px;
+	height:20px;
+}
+#legendTable tr{
+	background-color: rgba(0,0,0,0);
+}
+
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+td:first-child{
+	padding-left:70px;
+}
+td:nth-child(2) {
+	text-align:center;
+}
+td:nth-child(3) {
+    min-width: 80px;
+	text-align:right;
+	padding-right:70px;
+}
+
+.myModal-content{
+	position:relative;
+}
+.modal-pendingcancel-content{
+	width: 50%;
+    height: 50%;
+    background-color: rgba(255, 0, 0, 0.4);
+    display: none;
+    position: absolute;
+	align-items: center;
+}
+.modal-pendingcancel-content.show-pendingcancel{
+	display: flex;
+	justify-content: center;
+}
+
+.modal-tableaction-buttoncontainer button{
+	height:100px;
+	border: none;
+    
+	color: white;
+    font-weight:bold;
+	cursor: pointer;
+}
+.modal-tableaction-buttoncontainer button:active, .modal-tableaction-buttoncontainer button:focus{
+	border:0;
+	outline:none;
+}
+.modal-tableaction-buttoncontainer .cancelorder{
+	width: 20%;
+	border-bottom-left-radius: 0.3rem;
+}
+.modal-tableaction-buttoncontainer .sendorder{
+	width: 60%;
+}
+.modal-tableaction-buttoncontainer .sendorder.showpaybutton{
+	width:40%; /*reduce 20% to give space for pay button*/
+}
+.modal-tableaction-buttoncontainer .printbill{
+	width: 20%;
+}
+.modal-tableaction-buttoncontainer .pay{
+	width: 20%;
+	border-bottom-right-radius: 0.3rem;
+	display:none;
+}
+.modal-tableaction-buttoncontainer .pay.showpaybutton{
+	display:inline;
+}
+.red_cancelorder{
+	background-color:#d9534f;
+}
+.red_cancelorder:hover{
+	background-color:#c1413e;
+}
+.red_cancelorder:focus, .red_cancelorder:active {
+	background-color: salmon;
+}
+.green_sendorder, li.green_ordersent{
+	background-color:#5cb85c;
+}
+.green_sendorder:hover{
+	background-color:#4ba04b;
+}
+.green_sendorder:focus, .green_sendorder:active, div.green_ordersent{
+	background-color:darkseagreen;
+}
+.blue_printbill, li.blue_billprinted{
+	background-color:#337ab7;
+}
+.blue_printbill:hover{
+	background-color:#276ba5;
+}
+.blue_printbill:focus, .blue_printbill:active, div.blue_billprinted{
+	background-color:cornflowerblue;
+}
+.yellow_pay{
+	background-color: #f0ad4e;
+}
+.yellow_pay:hover{
+	background-color: goldenrod;
+}
+.yellow_pay:focus, .yellow_pay:active{
+	background-color: #f4b964;
+}
+.grey_disablebutton{
+	background-color:grey !important;
+	color: #404040;
+	cursor: default !important;
+}
+.grey_available{
+	background-color: #686868;
+}
+
+
+
+/* The Close Button */
+.close {
+	margin-top: -12px;
+	width: 11%; /*100% - h1*/
+	float: right;
+	
+    color: #0a2433;
+    font-size: 3em;
+    font-weight: bold;
+	
+	/*overwrite default*/
+	text-shadow:none;
+	opacity:1;
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,11 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "arrow-parens": false,
+    "quotemark": [true, "single", "avoid-escape", "jsx-single"],
+    "object-literal-sort-keys": false,
+    "interface-name": [false],
+    "max-classes-per-file": [true, 1],
+    "completed-docs": [true]
+  }
+}
